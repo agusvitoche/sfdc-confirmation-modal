@@ -1,0 +1,39 @@
+<!--
+  @description       : LWC for show a confirmation modal
+  @author            : Agustín M. Etcheverry
+  @last modified on  : 04-15-2022
+  @last modified by  : Agustín M. Etcheverry
+-->
+<template>
+
+    <template if:true={visible}>
+        <!-- HEADER -->
+        <lightning-quick-action-panel header={title}>
+
+            <!-- BODY -->
+            <lightning-formatted-rich-text value={message}></lightning-formatted-rich-text>
+
+            <!-- FOOTER -->
+            <div slot="footer">
+
+                <!-- CANCEL -->
+                <lightning-button class="slds-m-right_small"
+                                disabled={disableButtons}
+                                variant="neutral"
+                                name="cancel"
+                                label={cancelLabel}
+                                title={cancelLabel}
+                                onclick={handleClick} ></lightning-button>
+
+                <!-- CONFIRM -->
+                <lightning-button disabled={disableButtons}
+                                variant="brand"
+                                name="confirm"
+                                label={confirmLabel}
+                                title={confirmLabel}
+                                onclick={handleClick} ></lightning-button>
+            </div>
+        </lightning-quick-action-panel>
+    </template>
+    
+</template>
